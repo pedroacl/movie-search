@@ -8,10 +8,14 @@ export const Container = styled.div`
 
 export const H1 = styled.h1`
   text-align: center;
+  color: white;
+  margin: 0 0 10px 0;
 `
 
 export const P = styled.p`
   text-align: center;
+  color: grey;
+  margin: 0 0 10px 0;
 `
 
 export const Image = styled.img`
