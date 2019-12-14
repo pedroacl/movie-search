@@ -3,7 +3,15 @@ interface Rating {
   Value: string
 }
 
-export interface Movie {
+export interface MovieListDetails {
+  Poster: string
+  Title: string
+  Type: string
+  Year: string
+  imdbID: string
+}
+
+export interface MovieDetails {
   Actors: string
   Awards: string
   BoxOffice?: string

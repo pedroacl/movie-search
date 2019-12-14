@@ -15,9 +15,10 @@ import * as S from './styles'
 import MoviesNotFound from './MoviesNotFound'
 import MoviesList from './MoviesList'
 import MovieDetails from './MovieDetails'
+import { MovieListDetails } from 'types/movie';
 
 const Home = () => {
-  const [movies, setMovies] = useState()
+  const [movies, setMovies] = useState<MovieListDetails[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 

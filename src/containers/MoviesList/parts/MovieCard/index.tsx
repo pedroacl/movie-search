@@ -2,9 +2,10 @@ import React from 'react'
 import { useHistory } from "react-router-dom";
 
 import * as S from './styles'
+import { MovieListDetails } from 'types/movie';
 
 type Props = {
-  movie: any
+  movie: MovieListDetails
 }
 
 const MovieCard: React.FC<Props> = ({movie}) => {

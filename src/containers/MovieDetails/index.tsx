@@ -7,9 +7,10 @@ import { getMovie } from 'services/movies'
 import Description from './parts/Description'
 
 import * as S from './styles'
+import { MovieDetails as MovieDetailsType } from 'types/movie';
 
 const MovieDetails = () => {
-  const [movie, setMovie] = useState()
+  const [movie, setMovie] = useState<MovieDetailsType>()
   const [loading, setLoading] = useState(true)
   const { movieId } = useParams()
 

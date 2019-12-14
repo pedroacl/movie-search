@@ -1,9 +1,10 @@
 import React from 'react'
 
 import * as S from './styles'
+import { MovieDetails } from 'types/movie'
 
 type Props = {
-  movie: any
+  movie: MovieDetails
 }
 
 const Duration: React.FC<Props> = ({ movie }) => {

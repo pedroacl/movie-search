@@ -4,13 +4,15 @@ import Paragraph from 'components/Paragraph'
 import TextColumn from 'components/TextColumn'
 
 import * as S from './styles'
+import { MovieDetails } from 'types/movie'
 
 type Props = {
-  movie: any
+  movie: MovieDetails
 }
 
 const ThreeColumns: React.FC<Props> = ({ movie }) => {
-  const parseColumn = (content: string) => {
+  const parseColumn = (content: string | undefined) => {
+    if (!content) return <Paragraph>'N/A'</Paragraph>
     const data = content.split(',').map(content => <Paragraph key={content}>{content.trim()}</Paragraph>)
     return <>{data}</>
   }

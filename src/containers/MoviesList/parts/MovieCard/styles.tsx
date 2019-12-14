@@ -6,5 +6,7 @@ export const Img = styled.img`
 
   &:hover {
     cursor: pointer;
+    opacity: 0.3;
+    transition: 0.5s;
   }
 `
