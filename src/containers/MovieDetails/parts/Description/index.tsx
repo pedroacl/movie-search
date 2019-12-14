@@ -7,6 +7,7 @@ import Duration from './parts/Duration'
 import TextColumn from 'components/TextColumn'
 import ThreeColumns from './parts/ThreeColumns'
 import RatingCard from './parts/Rating'
+import AddToFavorites from './parts/AddToFavorites'
 import { ReactComponent as IMDbIcon } from 'assets/logo-imdb.svg'
 import { ReactComponent as RottenTomatoesIcon } from 'assets/logo-rotten-tomatoes.svg'
 
@@ -43,6 +44,8 @@ const Description: React.FC<Props> = ({ movie }) => {
       <RatingCard color={'red'} rating={getRating(RatingEnum.ROTTEN_TOMATOES, movie.Ratings)}>
         <RottenTomatoesIcon stroke="red" />
       </RatingCard>
+
+      <AddToFavorites />
     </S.RatingsContainer>
 
     <TextColumn title='Plot' content={<Paragraph>{movie.Plot}</Paragraph>} />
