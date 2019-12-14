@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import {useHistory} from 'react-router-dom'
+
 import Icon from 'assets/icon-magnifier-grey.svg'
 
 import * as S from './styles'
@@ -9,9 +11,11 @@ type Params = {
 
 const SearchBar: React.FC<Params> = ({ loadMovies }) => {
   const [search, setSearch] = useState('')
+  const history = useHistory()
 
   const handleSubmitForm = (e: any) => {
     e.preventDefault()
+    history.push('/')
     loadMovies(search)
   }
 

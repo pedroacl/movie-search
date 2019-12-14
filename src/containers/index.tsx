@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +15,7 @@ import Logo from 'assets/logo.png'
 import * as S from './styles'
 import MoviesNotFound from './MoviesNotFound'
 import MoviesList from './MoviesList'
+import MovieDetails from './MovieDetails'
 
 const Home = () => {
   const [movies, setMovies] = useState()
@@ -35,15 +38,18 @@ const Home = () => {
   }
 
   return <S.Container>
-    <S.WhatsIn src={Logo} alt='logo' />
-    <SearchBar loadMovies={loadMovies} />
-
     <Router>
+      <S.WhatsIn src={Logo} alt='logo' />
+
       <Switch>
+        <Route path="/movies/:movieId">
+          <MovieDetails />
+        </Route>
         <Route path="/">
-          {loading && <div>Loading</div>}
+          <SearchBar loadMovies={loadMovies} />
+          {loading && <S.CircularProgressWrapper><CircularProgress /></S.CircularProgressWrapper>}
           {!loading && movies && movies.length === 0 && <MoviesNotFound />}
-          {movies && movies.length > 0 && <MoviesList movies={movies} />}
+          {!loading && movies && movies.length > 0 && <MoviesList movies={movies} />}
         </Route>
       </Switch>
     </Router>

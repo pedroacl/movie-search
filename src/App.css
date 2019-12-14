@@ -36,6 +36,10 @@ body {
   background-color: #0A1013;
 }
 
+h2 {
+  font-size: 17px;
+}
+
 #root {
   height: 100%;
 }

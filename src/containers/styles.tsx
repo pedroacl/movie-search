@@ -11,4 +11,10 @@ export const Container = styled.div`
 
 export const WhatsIn = styled.img`
   height: 35px;
+  margin-bottom: 10px 0;
+`
+
+export const CircularProgressWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `
