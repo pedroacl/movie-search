@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // Link
 } from "react-router-dom";
 
 import { getMovies } from 'services/movies'
@@ -26,8 +25,6 @@ const Home = () => {
     try {
       setLoading(true)
       const { data } = await getMovies(search)
-      console.log('movies', data.Search)
-      console.log('keys', Object.keys(data.Search))
       setMovies(data.Search)
     }
     catch (e) {
@@ -47,6 +44,7 @@ const Home = () => {
         </Route>
         <Route path="/">
           <SearchBar loadMovies={loadMovies} />
+          {error && <div>Error loading movies</div>}
           {loading && <S.CircularProgressWrapper><CircularProgress /></S.CircularProgressWrapper>}
           {!loading && movies && movies.length === 0 && <MoviesNotFound />}
           {!loading && movies && movies.length > 0 && <MoviesList movies={movies} />}

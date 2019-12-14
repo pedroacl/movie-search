@@ -20,7 +20,6 @@ const MovieDetails = () => {
       try {
         setLoading(true)
         const { data } = await getMovie(movieId)
-        console.log('data', data)
         setMovie(data)
       } catch (err) {
         console.error(err)

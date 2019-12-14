@@ -12,7 +12,7 @@ const Duration: React.FC<Props> = ({ movie }) => {
     <S.MiddleDot>&#183;</S.MiddleDot>
     <p>{movie.Year}</p>
     <S.MiddleDot>&#183;</S.MiddleDot>
-    <p>{movie.Rated}</p>
+    <S.Rated>{movie.Rated}</S.Rated>
   </S.Container>
 }
 

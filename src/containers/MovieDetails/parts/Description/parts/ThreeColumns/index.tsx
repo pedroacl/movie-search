@@ -11,7 +11,7 @@ type Props = {
 
 const ThreeColumns: React.FC<Props> = ({ movie }) => {
   const parseColumn = (content: string) => {
-    const data = content.split(',').map(content => <Paragraph>{content.trim()}</Paragraph>)
+    const data = content.split(',').map(content => <Paragraph key={content}>{content.trim()}</Paragraph>)
     return <>{data}</>
   }
 
