@@ -16,7 +16,7 @@ import * as S from './styles'
 import MoviesNotFound from './MoviesNotFound'
 import MoviesList from './MoviesList'
 import MovieDetails from './MovieDetails'
-import { MovieListDetails, MovieDetails as MovieDetailsType } from 'types/movie';
+import { MovieListDetails } from 'types/movie';
 
 const Home = () => {
   const [movies, setMovies] = useState<MovieListDetails[]>()
@@ -24,12 +24,12 @@ const Home = () => {
   const [error, setError] = useState()
   const [favoriteMovies, setFavoriteMovies] = useState<string[]>([])
 
-  const handleAddMovieToFavorites = (movie: MovieDetailsType) =>
-    setFavoriteMovies([...favoriteMovies, movie.imdbID])
-
+  const handleAddMovieToFavorites = (imdbID: string) =>{
+    setFavoriteMovies([...favoriteMovies, imdbID])
+}
   const contextState = {
     favoriteMovies,
-    addMovieToFavorites: (movie: MovieDetailsType) => handleAddMovieToFavorites(movie)
+    addMovieToFavorites: (imdbID: string) => handleAddMovieToFavorites(imdbID)
   }
 
   const loadMovies = async (search: string) => {

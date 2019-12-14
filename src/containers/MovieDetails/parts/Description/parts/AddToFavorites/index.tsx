@@ -23,7 +23,7 @@ const AddToFavorites: React.FC<Props> = ({ movie }) => {
   const handleAddMovieToFavorites = () => {
     setImgSrc(HeartIconFavorite)
     setIsFavorite(true)
-    addMovieToFavorites(movie)
+    addMovieToFavorites(movie.imdbID)
   }
 
   return (

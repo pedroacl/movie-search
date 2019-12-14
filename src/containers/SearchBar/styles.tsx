@@ -18,3 +18,9 @@ export const StyledInput = styled.input`
     width: 100%;
     font-size: 16px;
 `
+
+export const SearchIcon = styled.img`
+  &:hover {
+    cursor: pointer;
+  }
+`

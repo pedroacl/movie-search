@@ -1,13 +1,12 @@
 import React from 'react'
-import { MovieDetails } from 'types/movie'
 
 interface ContextProps {
-  addMovieToFavorites: (movie: MovieDetails) => void
+  addMovieToFavorites: (imdbID: string) => void
   favoriteMovies: string[]
 }
 
 const MovieContext = React.createContext<ContextProps>({
-  addMovieToFavorites: (movie: MovieDetails) => {},
+  addMovieToFavorites: (imdbID: string) => {},
   favoriteMovies: []
 })
 
