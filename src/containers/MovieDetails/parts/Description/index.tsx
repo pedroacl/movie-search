@@ -12,14 +12,15 @@ import { ReactComponent as IMDbIcon } from 'assets/logo-imdb.svg'
 import { ReactComponent as RottenTomatoesIcon } from 'assets/logo-rotten-tomatoes.svg'
 
 import * as S from './styles'
-import { Rating } from 'types/movie'
+import { Rating, MovieDetails } from 'types/movie'
 import RatingEnum from 'enums/Rating'
 
 type Props = {
-  movie: any
+  movie: MovieDetails
 }
 
-const getRating = (source: string, ratings: Rating[]) => {
+const getRating = (source: string, ratings: Rating[] | undefined) => {
+  if (!ratings) return 'N/A'
   const rating = ratings.find(rating => rating.Source === source)?.Value
   return rating || 'N/A'
 }
@@ -45,7 +46,7 @@ const Description: React.FC<Props> = ({ movie }) => {
         <RottenTomatoesIcon stroke="red" />
       </RatingCard>
 
-      <AddToFavorites />
+      <AddToFavorites movie={movie}/>
     </S.RatingsContainer>
 
     <TextColumn title='Plot' content={<Paragraph>{movie.Plot}</Paragraph>} />

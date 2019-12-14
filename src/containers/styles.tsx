@@ -13,9 +13,4 @@ export const WhatsIn = styled.img`
   height: 35px;
 `
 
-export const CircularProgressWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
 export const customGrey = '#7A8C99'

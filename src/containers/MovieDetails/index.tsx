@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { useParams } from 'react-router'
 
 import { getMovie } from 'services/movies'
 
+import CircularProgress from 'components/CircularProgress';
 import Description from './parts/Description'
 
 import * as S from './styles'
@@ -19,7 +19,6 @@ const MovieDetails = () => {
 
     const loadMovie = async () => {
       try {
-        setLoading(true)
         const { data } = await getMovie(movieId)
         setMovie(data)
       } catch (err) {
@@ -27,6 +26,7 @@ const MovieDetails = () => {
       }
     }
 
+    setLoading(true)
     loadMovie()
     setLoading(false)
   }, [movieId])

@@ -26,10 +26,12 @@ export interface MovieDetails {
   Runtime: string
   Year: string
   Rated: string
-  Ratings?: Rating
+  Ratings?: Rating[]
   Released: string
   Response: string
   Runtime: string
   Type?: string
   Writer?: string
+  Title: string
+  imdbID: string
 }
