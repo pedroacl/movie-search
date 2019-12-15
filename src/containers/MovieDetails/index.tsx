@@ -11,7 +11,7 @@ import { MovieDetails as MovieDetailsType } from 'types/movie';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState<MovieDetailsType>()
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const { movieId } = useParams()
 
   useEffect(() => {
@@ -19,26 +19,28 @@ const MovieDetails = () => {
 
     const loadMovie = async () => {
       try {
+        setLoading(true)
         const { data } = await getMovie(movieId)
         setMovie(data)
+        setLoading(false)
       } catch (err) {
         console.error(err)
       }
     }
 
-    setLoading(true)
     loadMovie()
-    setLoading(false)
   }, [movieId])
 
   if (loading) return <CircularProgress />
 
   if (!movie) return <div>Not found</div>
 
-  return <S.Container>
-    <Description movie={movie} />
-    <S.Poster src={movie.Poster} alt="image-poster" />
-  </S.Container>
+  return (
+    <S.Container>
+      <Description movie={movie} />
+      <S.Poster src={movie.Poster} alt="image-poster" />
+    </S.Container>
+  )
 }
 
 export default MovieDetails
